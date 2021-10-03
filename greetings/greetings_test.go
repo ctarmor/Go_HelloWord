@@ -1,7 +1,6 @@
 package greetings
 
 import (
-	"fmt"
 	"regexp"
 	"testing"
 )
@@ -13,12 +12,11 @@ func TestHelloName(t *testing.T) {
 	if !want.MatchString(msg) || err != nil {
 		t.Fatalf(`Failed Hello("Gladys") = %q, %v, want match for %#q, nil`, msg, err, want)
 	}
-	fmt.Println("TestHelloName passed")
 }
 
 func TestHelloEmptyName(t *testing.T) {
 	msg, err := Hello("")
-	if msg != "" || err != nil {
+	if msg != "" || err == nil {
 		t.Fatalf("Failed TestHelloEmptyName")
 	}
 }
